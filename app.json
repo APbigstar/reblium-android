@@ -13,13 +13,23 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to camera to stream avatar.",
+        "NSMicrophoneUsageDescription": "This app needs access to microphone for audio.",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      },
+      "bundleIdentifier": "com.yourcompany.yourapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": ["CAMERA", "RECORD_AUDIO", "MODIFY_AUDIO_SETTINGS"],
+      "package": "com.yourcompany.yourapp"
     },
     "web": {
       "bundler": "metro",
@@ -27,7 +37,23 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      ["expo-av"],
+      ["expo-router"],
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "androidPackageName": "com.yourcompany.yourapp",
+          "androidPermissions": [
+            "android.permission.CAMERA",
+            "android.permission.RECORD_AUDIO",
+            "android.permission.MODIFY_AUDIO_SETTINGS"
+          ],
+          "iosPermissions": {
+            "Camera": "Allow $(PRODUCT_NAME) to access your camera",
+            "Microphone": "Allow $(PRODUCT_NAME) to access your microphone"
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

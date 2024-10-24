@@ -1,11 +1,13 @@
 import { Link } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function AvatarScreen() {
   return (
     <View style={styles.container}>
       <Text>Avatar Screen</Text>
-      <Link href="/avatarMode">Go to Avatar mode Screen</Link>
+      <Pressable>
+        <Link href="/avatarMode">Go to Avatar mode Screen</Link>
+      </Pressable>
     </View>
   );
 }

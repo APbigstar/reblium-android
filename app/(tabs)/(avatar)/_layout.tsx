@@ -13,7 +13,8 @@ export default function RootLayout() {
         },
       }}
     >
-      <Stack.Screen name="index" />
+      <Stack.Screen name="index" options={{ title: "Avatar" }} />
+      <Stack.Screen name="avatarMode" options={{ title: "Avatar Mode" }} />
     </Stack>
   );
 }
